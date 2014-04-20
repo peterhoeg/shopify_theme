@@ -8,6 +8,8 @@ require 'json'
 require 'filewatcher'
 require 'launchy'
 
+require 'awesome_print'
+
 module ShopifyTheme
   class Cli < Thor
     include Thor::Actions
@@ -187,8 +189,10 @@ module ShopifyTheme
       notify_and_sleep("Approaching limit of API permits. Naptime until more permits become available!") if ShopifyTheme.needs_sleep?
       asset = ShopifyTheme.get_asset(key)
       if asset['value']
+        # ap asset #['value']
+        # ap asset['response']
         # For CRLF line endings
-        content = asset['value'].gsub("\r", "")
+        content = asset['value'].force_encoding(ENCODING) #.to_s.gsub("\r", "")
         format = "w"
       elsif asset['attachment']
         content = Base64.decode64(asset['attachment'])

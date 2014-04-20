@@ -15,11 +15,12 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "shopify_theme"
   s.add_dependency("thor", [">= 0.14.4"])
-  s.add_dependency("httparty", "~> 0.10.0")
-  s.add_dependency("json", "~> 1.5.4")
+  s.add_dependency("httparty", "~> 0.13.0")
+  s.add_dependency("json")
   s.add_dependency("filewatcher")
   s.add_dependency("launchy")
 
+  s.add_development_dependency 'awesome_print'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'minitest', '>= 5.0.0'
   s.add_development_dependency 'pry'

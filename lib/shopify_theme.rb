@@ -124,7 +124,7 @@ module ShopifyTheme
 
   def self.is_binary_data?(string)
     if string.respond_to?(:encoding)
-      string.encoding == "US-ASCII"
+      string.encoding == ENCODING
     else
       ( string.count( "^ -~", "^\r\n" ).fdiv(string.size) > 0.3 || string.index( "\x00" ) ) unless string.empty?
     end

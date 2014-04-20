@@ -1,5 +1,10 @@
 #!/usr/bin/env ruby
 
+ENCODING = Encoding::US_ASCII
+
+Encoding.default_internal = ENCODING
+Encoding.default_external = ENCODING
+
 # This allows shopify_them to run easily from a git checkout without install.
 # Hat tip to chriseppstein of Compass fame for the code for this
 def fallback_load_path(path)
